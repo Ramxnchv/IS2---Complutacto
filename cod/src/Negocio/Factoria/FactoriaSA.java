@@ -1,9 +1,10 @@
 package Negocio.Factoria;
 
-import Negocio.Clientes.SACliente;
+import Negocio.Cliente.SACliente;
 import Negocio.Tarifa.SATarifa;
-import Negocio.Contrato.SAContrato;
+
 import Negocio.Empleado.SAEmpleado;
+import Negocio.Factoria.Imp.FactoriaSAImp;
 
 public abstract class FactoriaSA {
   public static FactoriaSA instancia;
@@ -16,6 +17,6 @@ public abstract class FactoriaSA {
 	public abstract SACliente generaSACliente();
 	public abstract SAEmpleado generaSAEmpleado();
 	public abstract SATarifa generaSATarifa ();
-	public abstract SAContrato generaSAContrato();
+	
 
 }
