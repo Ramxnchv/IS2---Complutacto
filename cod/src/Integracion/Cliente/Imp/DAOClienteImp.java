@@ -57,7 +57,7 @@ public class DAOClienteImp implements DAOCliente {
 	}
 
 	@Override
-	public TCliente leerPorID(int dni) {
+	public TCliente leerPorID(String dni) {
 		// TODO Auto-generated method stub
 		TCliente cliente = null;
 
