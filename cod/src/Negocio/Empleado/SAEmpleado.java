@@ -1,5 +1,7 @@
 package Negocio.Empleado;
 
+import java.util.Collection;
+
 public interface SAEmpleado {
 	public boolean AltaEmpleado(String dni) throws Exception;
 	public boolean BajaEmpleado(String dni) throws Exception;

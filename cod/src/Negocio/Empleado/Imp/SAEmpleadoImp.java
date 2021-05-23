@@ -1,13 +1,19 @@
 package Negocio.Empleado.Imp;
 
+import java.util.Collection;
+
+import Integracion.Empleado.DAOEmpleado;
+import Integracion.Factoria.FactoriaIntegracion;
+import Integracion.Factoria.Imp.FactoriaIntegracionImp;
 import Negocio.Empleado.SAEmpleado;
+import Negocio.Empleado.TEmpleado;
 
 public class SAEmpleadoImp implements SAEmpleado {
   protected FactoriaIntegracion factoria;
 	protected DAOEmpleado daoEmpleado;
 	public SAEmpleadoImp() {
-		factoria = FactoriaIntegracionImp.getInstance();
-		daoEmpleado = factoria.generarDAOEmpleado();
+		//factoria = FactoriaIntegracionImp.getInstance();
+		//daoEmpleado = factoria.generarDAOEmpleado();
 	}
 	
 	

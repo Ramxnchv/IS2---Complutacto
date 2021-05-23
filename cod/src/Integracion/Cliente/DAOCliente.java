@@ -2,10 +2,12 @@ package Integracion.Cliente;
 
 import java.util.Collection;
 
+import Negocio.Cliente.TCliente;
+
 public interface DAOCliente {
 	public TCliente leerPorNombre(String Nombre);
-	public TCliente leerPorID(int id);
+	public TCliente leerPorID(int dni);
 	public Collection <TCliente> leerTodos();
-	public int altaCliente(TCliente cliente) throws Exception;
-	public int actualizarCliente(TCliente cliente);
+	public void altaCliente(TCliente cliente) throws Exception;
+	public void actualizarCliente(TCliente cliente);
 }
