@@ -7,7 +7,7 @@ public interface SATarifa {
 	public boolean borrarTarifa(int id)throws Exception;
 	public boolean modificarTarifa(TTarifa tarifa)throws Exception;
 	public TTarifa mostrarTarifa(int id)throws Exception;
-	public Collection<TTarifa> mostrarTodos()throws Exception;	public Collection<TTarifa> mostrarTarifaPorEditorial(int id)throws Exception;
+	public Collection<TTarifa> mostrarTodos()throws Exception;
 
 
 }
