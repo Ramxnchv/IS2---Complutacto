@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2021 a las 21:14:07
+-- Tiempo de generación: 07-06-2021 a las 21:25:02
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -36,6 +36,13 @@ CREATE TABLE `cliente` (
   `activo` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`dni`, `nombre`, `apellidos`, `direccion`, `dni_empleado`, `activo`) VALUES
+('12345678B', 'Manolo', 'Garcia', 'Santasmases, 1', '51139430B', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +57,13 @@ CREATE TABLE `contrato` (
   `fechaFin` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `contrato`
+--
+
+INSERT INTO `contrato` (`id`, `dni_cliente`, `id_tarifa`, `fechaInicio`, `fechaFin`) VALUES
+(1, '12345678B', 1, '2021-06-07 19:21:23', '2021-07-31 19:21:04');
+
 -- --------------------------------------------------------
 
 --
@@ -62,9 +76,17 @@ CREATE TABLE `empleado` (
   `nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `apellidos` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` int(9) NOT NULL,
-  `dni_supervisor` varchar(9) COLLATE utf8_spanish2_ci NOT NULL,
+  `dni_supervisor` varchar(9) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `activo` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `empleado`
+--
+
+INSERT INTO `empleado` (`dni`, `contraseña`, `nombre`, `apellidos`, `telefono`, `dni_supervisor`, `activo`) VALUES
+('12345678A', 'binchen', 'BIN', 'CHEN', 688001661, NULL, 1),
+('51139430B', '1234', 'Ramon', 'Rosa', 677534170, '51139430B', 1);
 
 -- --------------------------------------------------------
 
@@ -77,6 +99,13 @@ CREATE TABLE `tarifa` (
   `nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `precio` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `tarifa`
+--
+
+INSERT INTO `tarifa` (`id`, `nombre`, `precio`) VALUES
+(1, 'MOVIL_PLUS', 80);
 
 --
 -- Índices para tablas volcadas
@@ -94,8 +123,8 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `contrato`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idtarifa` (`id_tarifa`),
-  ADD KEY `dniclient` (`dni_cliente`);
+  ADD KEY `dniclient` (`dni_cliente`),
+  ADD KEY `idtarifa` (`id_tarifa`);
 
 --
 -- Indices de la tabla `empleado`
@@ -118,13 +147,13 @@ ALTER TABLE `tarifa`
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tarifa`
 --
 ALTER TABLE `tarifa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -134,20 +163,20 @@ ALTER TABLE `tarifa`
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `empleadoAtiende` FOREIGN KEY (`dni_empleado`) REFERENCES `empleado` (`dni`);
+  ADD CONSTRAINT `empleadoAtiende` FOREIGN KEY (`dni_empleado`) REFERENCES `empleado` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  ADD CONSTRAINT `dniclient` FOREIGN KEY (`dni_cliente`) REFERENCES `cliente` (`dni`),
-  ADD CONSTRAINT `idtarifa` FOREIGN KEY (`id_tarifa`) REFERENCES `tarifa` (`id`);
+  ADD CONSTRAINT `dniclient` FOREIGN KEY (`dni_cliente`) REFERENCES `cliente` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `idtarifa` FOREIGN KEY (`id_tarifa`) REFERENCES `tarifa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  ADD CONSTRAINT `supervisor` FOREIGN KEY (`dni_supervisor`) REFERENCES `empleado` (`dni`);
+  ADD CONSTRAINT `supervisor` FOREIGN KEY (`dni_supervisor`) REFERENCES `empleado` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
