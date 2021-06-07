@@ -3,7 +3,6 @@ package Negocio.Factoria.Imp;
 import Negocio.Factoria.FactoriaSA;
 
 import Negocio.Tarifa.SATarifa;
-import Negocio.Tarifa.Imp.SATarifaImp;
 import Negocio.Cliente.SACliente;
 import Negocio.Cliente.Imp.SAClienteImp;
 import Negocio.Empleado.SAEmpleado;
@@ -20,8 +19,4 @@ public class FactoriaSAImp extends FactoriaSA{
 		return new SAEmpleadoImp();
 	}
 
-	@Override
-	public SATarifa generaSATarifa() {
-		return new SATarifaImp();
-	}
 }

@@ -16,7 +16,6 @@ public abstract class FactoriaSA {
 	}
 	public abstract SACliente generaSACliente();
 	public abstract SAEmpleado generaSAEmpleado();
-	public abstract SATarifa generaSATarifa ();
 	
 
 }
