@@ -16,21 +16,17 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 	private String url= "";
 	private String user = "root";
 	private String password = "MySQL";
-	private Statement ps;
-	private Connection cn;
 	
-	public DAOEmpleadoImp() {
+	
+	@Override
+	public TEmpleado leerEmpleadoDNI(String dni) throws SQLException {
 		try {
-			cn = DriverManager.getConnection(url, user, password);
-			ps = cn.createStatement();
+			Connection cn = DriverManager.getConnection(url, user, password);
+			Statement ps = cn.createStatement();
 		} catch (SQLException e) {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-	}
-	
-	@Override
-	public TEmpleado leerEmpleadoDNI(String dni) throws SQLException {
 		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and dni=" + dni);
 		return new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
 	}
@@ -38,6 +34,13 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 	@Override
 	public Collection<TEmpleado> leerEmpleadoNombre(String nombre) throws SQLException {
 		Collection<TEmpleado> ret = new ArrayList<>();
+		try {
+			Connection cn = DriverManager.getConnection(url, user, password);
+			Statement ps = cn.createStatement();
+		} catch (SQLException e) {
+			System.out.println("Error al intentar establecer conexion");
+			e.printStackTrace();
+		}
 		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and nombre=" + nombre);
 		while(rs.next()) {
 			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
@@ -49,6 +52,13 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 	@Override
 	public Collection<TEmpleado> leerEmpleadoApellidos(String apellidos) throws SQLException {
 		Collection<TEmpleado> ret = new ArrayList<>();
+		try {
+			Connection cn = DriverManager.getConnection(url, user, password);
+			Statement ps = cn.createStatement();
+		} catch (SQLException e) {
+			System.out.println("Error al intentar establecer conexion");
+			e.printStackTrace();
+		}
 		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and apellidos=" + apellidos);
 		while(rs.next()) {
 			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
@@ -60,6 +70,13 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 	@Override
 	public Collection <TEmpleado> leerEmpleados() throws SQLException {
 		Collection<TEmpleado> ret = new ArrayList<>();
+		try {
+			Connection cn = DriverManager.getConnection(url, user, password);
+			Statement ps = cn.createStatement();
+		} catch (SQLException e) {
+			System.out.println("Error al intentar establecer conexion");
+			e.printStackTrace();
+		}
 		ResultSet rs = ps.executeQuery("Select * from empleado where activo = '1' ");
 		while(rs.next()) {
 			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
