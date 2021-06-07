@@ -12,8 +12,8 @@ public class SAEmpleadoImp implements SAEmpleado {
   protected FactoriaIntegracion factoria;
 	protected DAOEmpleado daoEmpleado;
 	public SAEmpleadoImp() {
-		//factoria = FactoriaIntegracionImp.getInstance();
-		//daoEmpleado = factoria.generarDAOEmpleado();
+		factoria = FactoriaIntegracionImp.getInstance();
+		daoEmpleado = factoria.generaDAOEmpleados();
 	}
 	
 	
