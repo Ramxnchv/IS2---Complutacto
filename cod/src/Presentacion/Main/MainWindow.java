@@ -1,8 +1,13 @@
 package Presentacion.Main;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainWindow extends JFrame{
+	
+	public MainWindow() {
+		super("COMPLUTACTO");
+	}
 	
 	public static void main(String[] args) {
 		MainWindow myWindow=new MainWindow();
@@ -10,7 +15,10 @@ public class MainWindow extends JFrame{
 	}
 
 	private void initGUI() {
-		// TODO Auto-generated method stub
+		JPanel mainPanel = new MainPanel();
+		this.setContentPane(mainPanel);
+		this.setBounds(0, 0, 500, 500);
+		this.setVisible(true);
 		
 	}
 }
