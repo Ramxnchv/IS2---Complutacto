@@ -15,11 +15,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class MainPanel extends JPanel {
-	private ImageIcon fondo;
 	
 	public MainPanel() {
 		this.setLayout(new BorderLayout());
@@ -28,17 +28,21 @@ public class MainPanel extends JPanel {
 	}
 	
 	private void initGUI() {
-		//subpanel1
+		//subpanelimage
+		JPanel subPanelImage = new JPanel();
+		subPanelImage.setLayout(new BoxLayout(subPanelImage,BoxLayout.X_AXIS));	
+		JLabel imagen = new JLabel(new ImageIcon("fotoIS.jpg"));
+		imagen.setPreferredSize(new Dimension(100,100));
 		
+		//subpanel1
 		JPanel subPanel1 = new JPanel();
 		subPanel1.setLayout(new BoxLayout(subPanel1,BoxLayout.Y_AXIS));
 		subPanel1.setBorder(BorderFactory.createEmptyBorder(50,100, 50, 100));
-		
 		JLabel user = new JLabel("USER (DNI) : ");
 		JTextField user1 = new JTextField();
 		user1.setMaximumSize(new Dimension(500,30));
 		JLabel pw = new JLabel("PASSWORD : ");
-		JTextField pw1 = new JTextField();
+		JPasswordField pw1 = new JPasswordField();
 		pw1.setMaximumSize(new Dimension(500,30));
 		
 		
@@ -65,27 +69,25 @@ public class MainPanel extends JPanel {
 		});
 		
 		//anyadir las cosas
+		subPanelImage.add(Box.createHorizontalStrut(50));
+		subPanelImage.add(imagen);
+		subPanelImage.add(Box.createRigidArea(new Dimension(50,50)));
+		this.add(subPanelImage,BorderLayout.NORTH);
 		subPanel1.add(user);
 		subPanel1.add(user1);
 		subPanel1.add(Box.createRigidArea(new Dimension(50,50)));
 		subPanel1.add(pw);
 		subPanel1.add(pw1);
 		this.add(subPanel1,BorderLayout.CENTER);
-		subPanel2.add(Box.createHorizontalStrut(120));
+		subPanel2.add(Box.createHorizontalStrut(70));
 		subPanel2.add(logIn);
 		subPanel2.add(Box.createRigidArea(new Dimension(100,100)));
 		subPanel2.add(close);
 		this.add(subPanel2,BorderLayout.SOUTH);
 		
 		//fondo que no se porque no funciona
-		fondo = new ImageIcon("/resources/fotoIS.jpg");
+		//fondo = new ImageIcon("/resources/fotoIS.jpg");
 		repaint();
 	}
 	
-	@Override
-	protected void paintComponent(Graphics g) {
-		g.drawImage(fondo.getImage(), 0, 0, getWidth(), getHeight(),this);
-		setOpaque(false);
-		super.paintComponent(g);
-	}
 }
