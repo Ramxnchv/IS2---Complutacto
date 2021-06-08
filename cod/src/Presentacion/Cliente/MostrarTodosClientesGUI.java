@@ -1,5 +1,6 @@
 package Presentacion.Cliente;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.swing.BoxLayout;
@@ -22,7 +23,7 @@ public class MostrarTodosClientesGUI extends JFrame{
 		this.setResizable(false);
 	}
 	
-	public void MostrarTodosClientes(Collection<TCliente> clientes) {
+	public void MostrarTodosClientes(ArrayList<TCliente> clientes) {
 		MostrarClienteTableModel x = new MostrarClienteTableModel(clientes);
 		JTable table = new JTable(x);
 		JScrollPane y = new JScrollPane(table);

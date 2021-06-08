@@ -7,7 +7,9 @@ import Negocio.Cliente.TCliente;
 import Negocio.Empleado.SAEmpleado;
 import Negocio.Empleado.TEmpleado;
 import Negocio.Factoria.FactoriaSA;
+import Presentacion.Cliente.MostrarTodosClientesGUI;
 import Presentacion.Controlador.Controlador;
+import Presentacion.Empleado.MostrarTodosEmpleadosGUI;
 import Presentacion.Factoria.FactoriaVistas;
 import Presentacion.Main.LogInWindow;
 import Presentacion.Main.MainWindow;
@@ -76,9 +78,9 @@ public class ControladorImp extends Controlador{
 			case Evento.MOSTRAR_TODOS_CLIENTE:{
 				factoria = FactoriaSA.getInstance();
 				saCliente= factoria.generaSACliente();
-				//MostrarTodosClientesGUI most= new MostrarTodosClientesGUI();
+				MostrarTodosClientesGUI most= new MostrarTodosClientesGUI();
 				try {
-					//most.MostrarTodosClientes(saCliente.MostrarTodos());
+					most.MostrarTodosClientes(saCliente.MostrarTodos());
 				}
 				catch(Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

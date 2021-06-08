@@ -92,9 +92,9 @@ public class DAOClienteImp implements DAOCliente {
 	}
 
 	@Override
-	public Collection<TCliente> leerTodos() {
+	public ArrayList<TCliente> leerTodos() {
 		// TODO Auto-generated method stub
-				Collection <TCliente> clientes= new ArrayList<TCliente>();
+				ArrayList <TCliente> clientes= new ArrayList<TCliente>();
 
 				try {
 					Class.forName(driver);

@@ -1,5 +1,6 @@
 package Negocio.Cliente.Imp;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import Integracion.Cliente.DAOCliente;
@@ -107,10 +108,10 @@ public class SAClienteImp implements SACliente {
 	}
 
 	@Override
-	public Collection<TCliente> MostrarTodos() throws Exception {
+	public ArrayList<TCliente> MostrarTodos() throws Exception {
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOCliente daoC = factoria.generaDAOClientes();
-		Collection<TCliente> clientes = daoC.leerTodos();
+		ArrayList<TCliente> clientes = daoC.leerTodos();
 		return clientes;
 	}
 

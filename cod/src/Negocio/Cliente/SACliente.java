@@ -1,5 +1,6 @@
 package Negocio.Cliente;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public interface SACliente {
@@ -15,5 +16,5 @@ public interface SACliente {
 	public TCliente MostrarCliente(TCliente cliente) throws Exception;
 
 
-	public Collection<TCliente> MostrarTodos() throws Exception;
+	public ArrayList<TCliente> MostrarTodos() throws Exception;
 }
