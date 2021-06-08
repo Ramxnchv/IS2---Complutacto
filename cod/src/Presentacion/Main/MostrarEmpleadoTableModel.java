@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.swing.table.AbstractTableModel;
-
 import Negocio.Empleado.TEmpleado;
-import simulator.model.Body;
 
 public class MostrarEmpleadoTableModel extends AbstractTableModel {
 	private Collection<TEmpleado> lista;
