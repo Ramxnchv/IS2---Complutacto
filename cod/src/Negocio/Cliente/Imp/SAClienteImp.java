@@ -67,6 +67,14 @@ public class SAClienteImp implements SACliente {
 		// TODO Auto-generated method stub
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOCliente daoC = factoria.generaDAOClientes();
+		DAOEmpleado daoE = factoria.generaDAOEmpleados();
+		
+		//Buscamos el empleado que atiende al cliente
+		TEmpleado empTemp = daoE.leerEmpleadoDNI(cliente.getDNI_empleado());
+		
+		if(empTemp == null) {
+			throw new Exception("El DNI " + cliente.getDNI_empleado() + " no corresponde a ningún empleado");
+		}
 		
 		TCliente temp = daoC.leerPorID(cliente.getDNI());
 		if(temp != null && cliente.getDNI().equalsIgnoreCase(temp.getDNI())){
