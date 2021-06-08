@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 
 import Presentacion.Factoria.FactoriaVistas;
 
-public class MainWindow extends JFrame {
-	 private FactoriaVistas vistas= FactoriaVistas.getInstance();
+public class MainWindowAdmin extends JFrame{
+	private FactoriaVistas vistas= FactoriaVistas.getInstance();
 	 private JComboBox<Object> combo1;
 	 
 	 public void initGUI() {

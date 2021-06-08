@@ -13,15 +13,26 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
-public class MainPanel extends JPanel {
+import Negocio.Empleado.TEmpleado;
+import Presentacion.Controlador.Controlador.Evento;
+import Presentacion.Controlador.Imp.ControladorImp;
+import Presentacion.Factoria.FactoriaVistas;
+
+public class LogInPanel extends JPanel {
 	
-	public MainPanel() {
+	JFrame loginframe;
+	
+	public LogInPanel(JFrame loginframe) {
+		this.loginframe = loginframe;
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createTitledBorder("LOG IN"));
 		initGUI();
@@ -54,9 +65,20 @@ public class MainPanel extends JPanel {
 		JButton logIn = new JButton("Log In");
 		JButton close = new JButton("Close");
 		
+		
 		logIn.addActionListener(new ActionListener(){
 			 @Override
 			 public void actionPerformed(ActionEvent arg0) {
+				 String user = user1.getText();
+				 String pass = String.valueOf(pw1.getPassword());
+				 if(user.equals("") || pass.equals("")) {
+					JOptionPane.showMessageDialog(null,"Error: Los campos no pueden ser vacíos", "Error", JOptionPane.ERROR_MESSAGE) ;
+				 }
+				 else {
+					 TEmpleado empleado = new TEmpleado(user,pass);
+					 ControladorImp.getInstance().accion(Evento.LOG_IN_EMPLEADO, empleado);
+					 loginframe.setVisible(false);
+				 }
 				 
 			 };
 		});
@@ -85,8 +107,6 @@ public class MainPanel extends JPanel {
 		subPanel2.add(close);
 		this.add(subPanel2,BorderLayout.SOUTH);
 		
-		//fondo que no se porque no funciona
-		//fondo = new ImageIcon("/resources/fotoIS.jpg");
 		repaint();
 	}
 	

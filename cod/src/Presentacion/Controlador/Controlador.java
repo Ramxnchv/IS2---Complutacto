@@ -21,6 +21,7 @@ public abstract class Controlador {
 		public static final int ACCION_MODIFICAR_EMPLEADO=206;
 		public static final int MOSTRAR_EMPLEADO=207;
 		public static final int MOSTRAR_TODOS_EMPLEADO=208;
+		public static final int LOG_IN_EMPLEADO=209;
 	}
 	
 	private static Controlador instancia;

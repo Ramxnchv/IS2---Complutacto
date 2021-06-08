@@ -13,22 +13,33 @@ import Negocio.Empleado.TEmpleado;
 
 public class DAOEmpleadoImp implements DAOEmpleado {
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url= "";
+	private String url= "jdbc:mysql://localhost:3306/complutacto";
 	private String user = "root";
-	private String password = "MySQL";
+	private String password = "";
+	private PreparedStatement ps;
 	
 	
 	@Override
 	public TEmpleado leerEmpleadoDNI(String dni) throws SQLException {
+		TEmpleado emp = null;
 		try {
-			Connection cn = DriverManager.getConnection(url, user, password);
-			Statement ps = cn.createStatement();
+			Class.forName(driver);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try(Connection conexion=DriverManager.getConnection(url, user, password)) {
+			ps = conexion.prepareStatement("select * from empleado where activo = '1' and dni=\"" + dni +" \"");
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				emp = new TEmpleado(rs.getString(1), rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(2), rs.getString(6));
+			} 
 		} catch (SQLException e) {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and dni=" + dni);
-		return new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
+			return emp;
 	}
 
 	@Override
@@ -41,11 +52,11 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and nombre=" + nombre);
-		while(rs.next()) {
-			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
-			ret.add(t);
-		}
+//		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and nombre=" + nombre);
+//		while(rs.next()) {
+//			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
+//			ret.add(t);
+//		}
 		return ret;
 	}
 
@@ -59,11 +70,11 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and apellidos=" + apellidos);
-		while(rs.next()) {
-			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
-			ret.add(t);
-		}
+//		ResultSet rs = ps.executeQuery("select * from empleado where activo = '1' and apellidos=" + apellidos);
+//		while(rs.next()) {
+//			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
+//			ret.add(t);
+//		}
 		return ret;
 	}
 
@@ -77,11 +88,11 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-		ResultSet rs = ps.executeQuery("Select * from empleado where activo = '1' ");
-		while(rs.next()) {
-			TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
-			ret.add(t);
-		}
+		//ResultSet rs = ps.executeQuery("Select * from empleado where activo = '1' ");
+		//while(rs.next()) {
+			//TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
+			//ret.add(t);
+		//}
 		return ret;
 	}
 

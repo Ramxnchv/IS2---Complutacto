@@ -24,5 +24,4 @@ public abstract class FactoriaVistas {
 //	public abstract ModificarEmpleadoGUI generaModificarEmpleadoGUI(int opcion);
 //	public abstract MostrarEmpleadoGUI generaMostrarEmpleadoGUI();
 //	public abstract MostrarTodosEmpleadosGUI generaMostrarTodosEmpleadosGUI();
-	
 }

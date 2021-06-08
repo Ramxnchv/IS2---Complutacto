@@ -9,6 +9,9 @@ import Negocio.Empleado.TEmpleado;
 import Negocio.Factoria.FactoriaSA;
 import Presentacion.Controlador.Controlador;
 import Presentacion.Factoria.FactoriaVistas;
+import Presentacion.Main.LogInWindow;
+import Presentacion.Main.MainWindow;
+import Presentacion.Main.MainWindowAdmin;
 
 public class ControladorImp extends Controlador{
 	
@@ -137,6 +140,25 @@ public class ControladorImp extends Controlador{
 					//most.MostrarTodosEmpleados(saEmpleado.MostrarTodos());
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+			}break;
+			case Evento.LOG_IN_EMPLEADO:{
+				TEmpleado empleado = (TEmpleado) object;
+				factoria = FactoriaSA.getInstance();
+				saEmpleado = factoria.generaSAEmpleado();
+				try {
+					if(saEmpleado.LogInEmpleado(empleado.getDNI(), empleado.getPW())) {
+						MainWindow mw = new MainWindow();
+						mw.initGUI();
+					}
+					else {
+						MainWindowAdmin mwa = new MainWindowAdmin();
+						mwa.initGUI();
+					}
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+					LogInWindow l = new LogInWindow();
+					l.initGUI();
 				}
 			}break;
 		}

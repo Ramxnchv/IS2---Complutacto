@@ -15,7 +15,7 @@ import Negocio.Cliente.TCliente;
 public class DAOClienteImp implements DAOCliente {
 	
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url="jdbc:mysql://localhost/complutacto";
+	private String url="jdbc:mysql://localhost:3306/complutacto";
 	private String user = "root";
 	private String pass = "";
 	private PreparedStatement ps;

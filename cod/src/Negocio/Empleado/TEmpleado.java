@@ -4,15 +4,23 @@ public class TEmpleado {
 	protected String dni;
 	protected String nombre;
 	protected String apellidos;
-	protected String telefono;
+	protected int telefono;
 	protected String password;
+	protected String dnisupervisor;
 	protected boolean activo;
 	
-	public TEmpleado(String dni, String nombre,String apellidos,String telefono, String password) {
+	public TEmpleado(String dni, String nombre,String apellidos,int telefono, String password, String dnisupervisor) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
+		this.password = password;
+		this.dnisupervisor = dnisupervisor;
+		activo = true;
+	}
+	
+	public TEmpleado(String dni, String password) {
+		this.dni = dni;
 		this.password = password;
 		activo = true;
 	}
@@ -32,8 +40,16 @@ public class TEmpleado {
 		return apellidos;
 	}
 	
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
+	}
+	
+	public String getDNISupervisor() {
+		return dnisupervisor;
+	}
+	
+	public void setDNISupervisor(String dnisupervisor) {
+		this.dnisupervisor = dnisupervisor;
 	}
 	
 	public boolean getActivo() {
