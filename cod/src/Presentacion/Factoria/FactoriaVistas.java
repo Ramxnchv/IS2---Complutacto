@@ -1,5 +1,10 @@
 package Presentacion.Factoria;
 
+import Presentacion.Cliente.AltaClienteGUI;
+import Presentacion.Cliente.BajaClienteGUI;
+import Presentacion.Cliente.ModificarClienteGUI;
+import Presentacion.Cliente.MostrarClienteGUI;
+import Presentacion.Cliente.MostrarTodosClientesGUI;
 import Presentacion.Factoria.Imp.FactoriaVistasImp;
 
 public abstract class FactoriaVistas {
@@ -13,12 +18,12 @@ public abstract class FactoriaVistas {
 		return instancia;
 	}
 	
-//	public abstract AltaClienteGUI generaAltaClienteGUI(int opcion);
-//	public abstract BajaClienteGUI generaBorrarClienteGUI();
-//	public abstract ModificarClienteGUI generaModificarClienteGUI(int opcion);
-//	public abstract MostrarClienteGUI generaMostrarClienteGUI();
-//	public abstract MostrarTodosClientesGUI generaMostrarTodosClientesGUI();
-//	
+	public abstract AltaClienteGUI generaAltaClienteGUI(int opcion);
+	public abstract BajaClienteGUI generaBorrarClienteGUI();
+	public abstract ModificarClienteGUI generaModificarClienteGUI(int opcion);
+	public abstract MostrarClienteGUI generaMostrarClienteGUI();
+	public abstract MostrarTodosClientesGUI generaMostrarTodosClientesGUI();
+	
 //	public abstract AltaEmpleadoGUI generaAltaEmpleadoGUI(int opcion);
 //	public abstract BajaEmpleadoGUI generaBorrarEmpleadoGUI();
 //	public abstract ModificarEmpleadoGUI generaModificarEmpleadoGUI(int opcion);
