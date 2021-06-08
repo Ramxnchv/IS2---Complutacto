@@ -13,8 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Negocio.Empleado.TEmpleado;
+import Presentacion.Controlador.Controlador;
+import Presentacion.Controlador.Controlador.Evento;
+import Presentacion.Controlador.Imp.ControladorImp;
 import Presentacion.Factoria.FactoriaVistas;
 
 public class MainWindow extends JFrame {
@@ -79,7 +84,31 @@ public class MainWindow extends JFrame {
 		 JPanel panelBotones = new JPanel();
 		 panelBotones.setLayout(new BoxLayout(panelBotones,BoxLayout.X_AXIS));
 		 JButton aceptar = new JButton("Aceptar");
-		 //panelBotones.add(Box.createHorizontalStrut(120));
+		 
+		 aceptar.addActionListener(new ActionListener(){
+			 @Override
+			 public void actionPerformed(ActionEvent arg0) {
+				 String cad= (String) combo1.getSelectedItem();
+				 switch(cad) {
+				 	case "ALTA_CLIENTE" :{
+				 		vistas.generaAltaClienteGUI();
+				 	}break;
+				 	case "BAJA_CLIENTE" :{
+				 		vistas.generaBorrarClienteGUI();
+				 	}break;
+				 	case "MODIFICAR_CLIENTE" :{
+				 		vistas.generaModificarClienteGUI();
+				 	}break;
+				 	case "MOSTRAR_CLIENTE" :{
+				 		vistas.generaMostrarClienteGUI();
+				 	}break;
+				 	case "MOSTRAR_TODOS_CLIENTE" :{
+				 		Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_CLIENTE, null);
+				 	}break;
+				 }
+			 };
+		 });
+		 
 		 panelBotones.add(aceptar);
 		 
 		 midPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION CLIENTES"));
@@ -92,7 +121,10 @@ public class MainWindow extends JFrame {
 		 midPanel.add(Box.createVerticalStrut(40));
 	     mainPanel.add(topPanel);
 	     mainPanel.add(midPanel);
-	    
+	     
+	     
+	     
+	     
 		 this.setContentPane(mainPanel);
 		 this.setBounds(0, 0, 560, 400);
 		 this.setVisible(true);

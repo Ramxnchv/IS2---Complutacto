@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Presentacion.Controlador.Controlador;
+import Presentacion.Controlador.Controlador.Evento;
 import Presentacion.Factoria.FactoriaVistas;
 
 public class MainWindowAdmin extends JFrame{
@@ -96,13 +98,59 @@ public class MainWindowAdmin extends JFrame{
 		 
 		 JPanel panelBotones = new JPanel();
 		 panelBotones.setLayout(new BoxLayout(panelBotones,BoxLayout.X_AXIS));
-		 JButton aceptar = new JButton("Aceptar");
-		 //panelBotones.add(Box.createHorizontalStrut(120));
+		 JButton aceptar = new JButton("Aceptar"); 
+		 aceptar.addActionListener(new ActionListener(){
+			 @Override
+			 public void actionPerformed(ActionEvent arg0) {
+				 String cad= (String) combo1.getSelectedItem();
+				 switch(cad) {
+				 	case "ALTA_CLIENTE" :{
+				 		vistas.generaAltaClienteGUI();
+				 	}break;
+				 	case "BAJA_CLIENTE" :{
+				 		vistas.generaBorrarClienteGUI();
+				 	}break;
+				 	case "MODIFICAR_CLIENTE" :{
+				 		vistas.generaModificarClienteGUI();
+				 	}break;
+				 	case "MOSTRAR_CLIENTE" :{
+				 		vistas.generaMostrarClienteGUI();
+				 	}break;
+				 	case "MOSTRAR_TODOS_CLIENTE" :{
+				 		Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_CLIENTE, null);
+				 	}break;
+				 }
+			 };
+		 });
 		 panelBotones.add(aceptar);
 		 
 		 JPanel panelBotonesEmpleado = new JPanel();
 		 panelBotonesEmpleado.setLayout(new BoxLayout(panelBotonesEmpleado,BoxLayout.X_AXIS));
 		 JButton aceptarEmp = new JButton("Aceptar");
+		 aceptarEmp.addActionListener(new ActionListener(){
+			 @Override
+			 public void actionPerformed(ActionEvent arg0) {
+				String cad= (String) combo1.getSelectedItem();
+				switch(cad) {
+				 case "ALTA_EMPLEADO" :{
+					 //vistas.generaAltaEmpleadoGUI();
+				 }break;	
+				 case "BAJA_EMPLEADO" :{
+					 //vistas.generaBorrarEmpleadoGUI();
+			 	 }break;
+				 case "MODIFICAR_EMPLEADO" :{
+					 //vistas.generaModificarEmpleadoGUI();
+				 }break;
+				 case "MOSTRAR_EMPLEADO" :{
+					 //vistas.generaMostrarEmpleadoGUI();
+			 	 }break;
+				 case "MOSTRAR_TODOS_EMPLEADO" :{
+					 //Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_EMPLEADO, null);
+				 }break;
+				}
+				 	
+			 };
+		 });
 		 panelBotonesEmpleado.add(aceptarEmp);
 		 
 		 botPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION CLIENTES"));

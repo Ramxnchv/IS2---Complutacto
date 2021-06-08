@@ -18,9 +18,9 @@ public abstract class FactoriaVistas {
 		return instancia;
 	}
 	
-	public abstract AltaClienteGUI generaAltaClienteGUI(int opcion);
+	public abstract AltaClienteGUI generaAltaClienteGUI();
 	public abstract BajaClienteGUI generaBorrarClienteGUI();
-	public abstract ModificarClienteGUI generaModificarClienteGUI(int opcion);
+	public abstract ModificarClienteGUI generaModificarClienteGUI();
 	public abstract MostrarClienteGUI generaMostrarClienteGUI();
 	public abstract MostrarTodosClientesGUI generaMostrarTodosClientesGUI();
 	
