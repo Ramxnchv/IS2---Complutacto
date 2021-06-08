@@ -196,4 +196,21 @@ public class DAOClienteImp implements DAOCliente {
 		return cliente;
 	}
 
+	@Override
+	public void bajaCliente(TCliente cliente) {
+		// TODO Auto-generated method stub
+		try(Connection conexion=DriverManager.getConnection(url, user, pass)){
+			Class.forName(driver);
+			ps=conexion.prepareStatement("UPDATE cliente SET nombre='"+cliente.getNombre()+"', apellidos='"+cliente.getApellidos()+"', direccion= '"+cliente.getDireccion()+"' ,dni_empleado='"+cliente.getDNI_empleado()+"', ACTIVO= 0 WHERE dni='"+cliente.getDNI()+"'");
+			ps.executeUpdate();
+            
+			}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch(Exception e){
+			e.getMessage();
+		}	
+	}
+
 }

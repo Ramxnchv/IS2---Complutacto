@@ -54,7 +54,7 @@ public class SAClienteImp implements SACliente {
 		TCliente temp = daoC.leerPorID(dni);
 		if(temp != null && temp.isActivo()){
 			temp.setActivo(false);
-			daoC.actualizarCliente(temp);
+			daoC.bajaCliente(temp);
 		}
 		else {
 			throw new Exception("No se ha podido dar de baja el cliente con DNI " + dni);

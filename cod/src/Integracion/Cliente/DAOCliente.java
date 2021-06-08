@@ -11,4 +11,5 @@ public interface DAOCliente {
 	public Collection <TCliente> leerTodos();
 	public void altaCliente(TCliente cliente) throws Exception;
 	public void actualizarCliente(TCliente cliente);
+	public void bajaCliente(TCliente cliente);
 }
