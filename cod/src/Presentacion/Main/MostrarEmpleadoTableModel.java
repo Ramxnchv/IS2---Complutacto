@@ -13,6 +13,9 @@ public class MostrarEmpleadoTableModel extends AbstractTableModel {
 	public MostrarEmpleadoTableModel(Collection<TEmpleado> lista) {
 		this.lista = lista;
 	}
+	public MostrarEmpleadoTableModel(TEmpleado empleado) {
+		this.lista.add(empleado);
+	}
 	@Override
 	public int getRowCount() {
 		return lista.size();
