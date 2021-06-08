@@ -151,25 +151,25 @@ public class MainWindowAdmin extends JFrame{
 				 	
 			 };
 		 });
+		 
+		 midPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION CLIENTES"));
+		 midPanel.add(Box.createVerticalStrut(40));
+		 midPanel.add(panelInfo);
+		 midPanel.add(Box.createVerticalStrut(40));
+		 midPanel.add(panelSelector);
+		 midPanel.add(Box.createVerticalStrut(40));
+		 midPanel.add(panelBotones);
+		 midPanel.add(Box.createVerticalStrut(40));
+		 
 		 panelBotonesEmpleado.add(aceptarEmp);
-		 
-		 botPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION CLIENTES"));
+		 botPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION EMPLEADOS"));
 		 botPanel.add(Box.createVerticalStrut(40));
-		 botPanel.add(panelInfo);
+		 botPanel.add(panelInfoEmpleado);
 		 botPanel.add(Box.createVerticalStrut(40));
-		 botPanel.add(panelSelector);
+		 botPanel.add(panelSelectorEmpleado);
 		 botPanel.add(Box.createVerticalStrut(40));
-		 botPanel.add(panelBotones);
+		 botPanel.add(panelBotonesEmpleado);
 		 botPanel.add(Box.createVerticalStrut(40));
-		 
-		 midPanel.setBorder(BorderFactory.createTitledBorder("MODULO GESTION EMPLEADOS"));
-		 midPanel.add(Box.createVerticalStrut(40));
-		 midPanel.add(panelInfoEmpleado);
-		 midPanel.add(Box.createVerticalStrut(40));
-		 midPanel.add(panelSelectorEmpleado);
-		 midPanel.add(Box.createVerticalStrut(40));
-		 midPanel.add(panelBotonesEmpleado);
-		 midPanel.add(Box.createVerticalStrut(40));
 		 
 	     mainPanel.add(topPanel);
 	     mainPanel.add(midPanel);

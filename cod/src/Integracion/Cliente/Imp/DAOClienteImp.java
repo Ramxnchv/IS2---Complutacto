@@ -148,8 +148,7 @@ public class DAOClienteImp implements DAOCliente {
 		
 		try(Connection conexion=DriverManager.getConnection(url, user, pass)){
 			Class.forName(driver);
-			int act = (cliente.isActivo() ? 1 : 0);
-			ps=conexion.prepareStatement("UPDATE cliente SET nombre='"+cliente.getNombre()+"', apellidos='"+cliente.getApellidos()+"', direccion= '"+cliente.getDireccion()+"' ,dni_empleado='"+cliente.getDNI_empleado()+"', ACTIVO='"+act+"' WHERE dni="+cliente.getDNI());
+			ps=conexion.prepareStatement("UPDATE cliente SET nombre='"+cliente.getNombre()+"', apellidos='"+cliente.getApellidos()+"', direccion= '"+cliente.getDireccion()+"' ,dni_empleado='"+cliente.getDNI_empleado()+"', ACTIVO= 1 WHERE dni='"+cliente.getDNI()+"'");
 			ps.executeUpdate();
             
 			}
@@ -159,6 +158,42 @@ public class DAOClienteImp implements DAOCliente {
 		catch(Exception e){
 			e.getMessage();
 		}	
+	}
+
+	@Override
+	public TCliente buscarPorID(String dni) {
+		// TODO Auto-generated method stub
+		TCliente cliente = null;
+
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try (Connection conexion = DriverManager.getConnection(url, user, pass)) {
+
+			ps = conexion.prepareStatement(
+					"SELECT cliente.dni, cliente.nombre, cliente.apellidos, cliente.direccion, cliente.dni_empleado, cliente.activo FROM cliente WHERE dni="
+							+ "'" + dni + "'");
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				cliente = new TCliente(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"),
+						rs.getString("direccion"), rs.getString("dni_empleado"), rs.getBoolean("activo"));
+
+			}
+
+			rs.close();
+			ps.close();
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+
+		return cliente;
 	}
 
 }
