@@ -7,5 +7,5 @@ public interface SAEmpleado {
 	public boolean BajaEmpleado(String dni) throws Exception;
 	public TEmpleado mostrarEmpleado(String dni) throws Exception;
 	public Collection<TEmpleado> mostrarTodos() throws Exception;
-	public boolean LogInEmpleado(String dni, String password) throws Exception;
+	public String[] LogInEmpleado(String dni, String password) throws Exception;
 }

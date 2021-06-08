@@ -58,7 +58,8 @@ public class SAEmpleadoImp implements SAEmpleado {
 
 
 	@Override
-	public boolean LogInEmpleado(String dni, String password) throws Exception {
+	public String[] LogInEmpleado(String dni, String password) throws Exception {
+		String[] resultado = new String[2];
 		TEmpleado empleado = daoEmpleado.leerEmpleadoDNI(dni);
 		if(empleado == null) {
 			throw new Exception("No existe ningún empleado en el sistema con ese DNI");
@@ -67,11 +68,12 @@ public class SAEmpleadoImp implements SAEmpleado {
 			if(!empleado.getPW().equals(password)) {
 				throw new Exception("La contraseña introducida es incorrecta");
 			}
-			if(empleado.getDNISupervisor() == null) {
-				return false;
-			}
+			
+			resultado[0] = empleado.getDNISupervisor() == null ?  "supervisor" : "empleado";
+			resultado[1] = empleado.getNombre() + " " + empleado.getApellidos();
+			
 		}
-		return true;
+		return resultado;
 	}
 
 }

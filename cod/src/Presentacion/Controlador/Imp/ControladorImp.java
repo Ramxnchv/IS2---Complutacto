@@ -147,12 +147,14 @@ public class ControladorImp extends Controlador{
 				factoria = FactoriaSA.getInstance();
 				saEmpleado = factoria.generaSAEmpleado();
 				try {
-					if(saEmpleado.LogInEmpleado(empleado.getDNI(), empleado.getPW())) {
-						MainWindow mw = new MainWindow();
+					String[] resultado = saEmpleado.LogInEmpleado(empleado.getDNI(), empleado.getPW());
+					
+					if(resultado[0].equals("empleado")) {
+						MainWindow mw = new MainWindow(resultado[1]);
 						mw.initGUI();
 					}
 					else {
-						MainWindowAdmin mwa = new MainWindowAdmin();
+						MainWindowAdmin mwa = new MainWindowAdmin(resultado[1]);
 						mwa.initGUI();
 					}
 				} catch (Exception e) {
