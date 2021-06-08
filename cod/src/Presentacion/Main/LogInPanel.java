@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 
 import javax.swing.BorderFactory;
@@ -19,17 +21,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 import Negocio.Empleado.TEmpleado;
 import Presentacion.Controlador.Controlador.Evento;
 import Presentacion.Controlador.Imp.ControladorImp;
-import Presentacion.Factoria.FactoriaVistas;
 
-public class LogInPanel extends JPanel {
+
+public class LogInPanel extends JPanel implements KeyListener{
 	
 	JFrame loginframe;
+	JTextField user1;
+	JPasswordField pw1;
 	
 	public LogInPanel(JFrame loginframe) {
 		this.loginframe = loginframe;
@@ -50,12 +52,13 @@ public class LogInPanel extends JPanel {
 		subPanel1.setLayout(new BoxLayout(subPanel1,BoxLayout.Y_AXIS));
 		subPanel1.setBorder(BorderFactory.createEmptyBorder(50,100, 50, 100));
 		JLabel user = new JLabel("USER (DNI) : ");
-		JTextField user1 = new JTextField();
-		user1.setMaximumSize(new Dimension(500,30));
+		this.user1 = new JTextField();
+		this.user1.setMaximumSize(new Dimension(500,30));
+		this.user1.addKeyListener(this);
 		JLabel pw = new JLabel("PASSWORD : ");
-		JPasswordField pw1 = new JPasswordField();
-		pw1.setMaximumSize(new Dimension(500,30));
-		
+		this.pw1 = new JPasswordField();
+		this.pw1.setMaximumSize(new Dimension(500,30));
+		this.pw1.addKeyListener(this);
 		
 		//subpanel2
 		JPanel subPanel2 = new JPanel();
@@ -108,6 +111,35 @@ public class LogInPanel extends JPanel {
 		this.add(subPanel2,BorderLayout.SOUTH);
 		
 		repaint();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.VK_ENTER == e.getKeyCode()) {
+			String user = user1.getText();
+			 String pass = String.valueOf(pw1.getPassword());
+			 if(user.equals("") || pass.equals("")) {
+				JOptionPane.showMessageDialog(null,"Error: Los campos no pueden ser vacíos", "Error", JOptionPane.ERROR_MESSAGE) ;
+			 }
+			 else {
+				 TEmpleado empleado = new TEmpleado(user,pass);
+				 ControladorImp.getInstance().accion(Evento.LOG_IN_EMPLEADO, empleado);
+				 loginframe.setVisible(false);
+			 }
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
