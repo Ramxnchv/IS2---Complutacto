@@ -130,7 +130,7 @@ public class MainWindowAdmin extends JFrame{
 		 aceptarEmp.addActionListener(new ActionListener(){
 			 @Override
 			 public void actionPerformed(ActionEvent arg0) {
-				String cad= (String) combo1.getSelectedItem();
+				String cad= (String) combo2.getSelectedItem();
 				switch(cad) {
 				 case "ALTA_EMPLEADO" :{
 					 //vistas.generaAltaEmpleadoGUI();
@@ -145,7 +145,7 @@ public class MainWindowAdmin extends JFrame{
 					 //vistas.generaMostrarEmpleadoGUI();
 			 	 }break;
 				 case "MOSTRAR_TODOS_EMPLEADO" :{
-					 //Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_EMPLEADO, null);
+					 Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_EMPLEADO, null);
 				 }break;
 				}
 				 	

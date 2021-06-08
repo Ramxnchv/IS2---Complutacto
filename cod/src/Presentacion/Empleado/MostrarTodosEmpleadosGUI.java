@@ -16,7 +16,7 @@ public class MostrarTodosEmpleadosGUI extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		this.setContentPane(panel);
-		this.setBounds(500,200,200,500);
+		this.setBounds(500,200,700,500);
 		this.setResizable(false);
 	}
 	

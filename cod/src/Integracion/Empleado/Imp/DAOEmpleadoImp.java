@@ -95,7 +95,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			while(rs.next()) {
 				TEmpleado t = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), 
 											rs.getString("apellidos"),rs.getInt("Telefono"),
-											rs.getString("contraseÃ±a"), rs.getString("dni_supervisor"));
+											rs.getString("contraseña"), rs.getString("dni_supervisor"));
 				ret.add(t);
 			}
 			
