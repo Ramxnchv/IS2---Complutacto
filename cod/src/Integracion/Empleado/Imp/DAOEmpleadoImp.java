@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.sql.ResultSet;
 import Integracion.Empleado.DAOEmpleado;
+import Negocio.Cliente.TCliente;
 import Negocio.Empleado.TEmpleado;
 
 public class DAOEmpleadoImp implements DAOEmpleado {
@@ -81,18 +82,27 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 	@Override
 	public Collection <TEmpleado> leerEmpleados() throws SQLException {
 		Collection<TEmpleado> ret = new ArrayList<>();
+		TEmpleado emp = null;
 		try {
-			Connection cn = DriverManager.getConnection(url, user, password);
-			Statement ps = cn.createStatement();
+			Class.forName(driver);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try(Connection conexion=DriverManager.getConnection(url, user, password)) {
+			ps = conexion.prepareStatement("Select * from empleado where activo = '1'");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				TEmpleado t = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), 
+											rs.getString("apellidos"),rs.getInt("Telefono"),
+											rs.getString("contraseña"), rs.getString("dni_supervisor"));
+				ret.add(t);
+			}
+			
 		} catch (SQLException e) {
 			System.out.println("Error al intentar establecer conexion");
 			e.printStackTrace();
 		}
-		//ResultSet rs = ps.executeQuery("Select * from empleado where activo = '1' ");
-		//while(rs.next()) {
-			//TEmpleado t = new TEmpleado(rs.getNString(1), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(2));
-			//ret.add(t);
-		//}
 		return ret;
 	}
 
