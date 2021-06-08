@@ -113,7 +113,7 @@ public class MainWindowAdmin extends JFrame{
 				 	case "MODIFICAR_CLIENTE" :{
 				 		vistas.generaModificarClienteGUI();
 				 	}break;
-				 	case "MOSTRAR_CLIENTE" :{
+				 	case "BUSCAR_CLIENTE" :{
 				 		vistas.generaMostrarClienteGUI();
 				 	}break;
 				 	case "MOSTRAR_TODOS_CLIENTE" :{

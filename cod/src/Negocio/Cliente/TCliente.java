@@ -16,6 +16,11 @@ public class TCliente {
 		this.DNI_empleado = dni_empleado;
 		this.activo = activo;
 	}
+	
+	public TCliente(String dni,String nombre) {
+		this.DNI=dni;
+		this.nombre=nombre;
+	}
 
 	public boolean isActivo() {
 		return activo;

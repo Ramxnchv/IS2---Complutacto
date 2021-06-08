@@ -63,11 +63,11 @@ public class ControladorImp extends Controlador{
 				}
 			}break;
 			case Evento.MOSTRAR_CLIENTE :{
-				String dni = (String) object;
+				TCliente cliente = (TCliente) object;
 				factoria = FactoriaSA.getInstance();
 				saCliente= factoria.generaSACliente();
 				try {
-					//vistas.generaMostrarClienteGUI().mostrarCliente(saCliente.MostrarCliente(dni));
+					vistas.generaMostrarClienteGUI().mostrarCliente(saCliente.MostrarCliente(cliente));
 				}
 				catch(Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

@@ -12,7 +12,7 @@ public interface SACliente {
 	public void ModificarCliente(TCliente cliente) throws Exception;
 
 
-	public TCliente MostrarCliente(String dni) throws Exception;
+	public TCliente MostrarCliente(TCliente cliente) throws Exception;
 
 
 	public Collection<TCliente> MostrarTodos() throws Exception;

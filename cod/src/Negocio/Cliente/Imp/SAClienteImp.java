@@ -86,14 +86,24 @@ public class SAClienteImp implements SACliente {
 	}
 
 	@Override
-	public TCliente MostrarCliente(String dni) throws Exception {
+	public TCliente MostrarCliente(TCliente cliente) throws Exception {
+		TCliente  c =null;
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOCliente daoC = factoria.generaDAOClientes();
-		TCliente  cliente = daoC.leerPorID(dni);
-		if(cliente == null || !cliente.isActivo()) {
-			throw new Exception("El cliente con DNI " +dni+" no se encuentra o no esta activo en la base de datos");
+		if(cliente.getDNI()==null) {
+			c = daoC.leerPorNombre(cliente.getNombre());
+			if(c == null || c.isActivo()==false) {
+				throw new Exception("El cliente con nombre: " +cliente.getNombre()+" no se encuentra o no esta activo en la base de datos");
+			}
 		}
-		return cliente;
+		else {
+			c = daoC.leerPorID(cliente.getDNI());
+			if(c == null || c.isActivo()==false) {
+				throw new Exception("El cliente con DNI " +cliente.getDNI()+" no se encuentra o no esta activo en la base de datos");
+			}
+		}
+		
+		return c;
 	}
 
 	@Override

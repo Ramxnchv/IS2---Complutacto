@@ -34,8 +34,7 @@ public class DAOClienteImp implements DAOCliente {
 				try (Connection conexion = DriverManager.getConnection(url, user, pass)) {
 
 					ps = conexion.prepareStatement(
-							"SELECT cliente.dni, cliente.nombre, cliente.apellidos, cliente.direccion, cliente.dni_empleado, cliente.activo FROM cliente WHERE activo='1' AND nombre="
-									+ "'" + Nombre + "'");
+							"SELECT cliente.dni, cliente.nombre, cliente.apellidos, cliente.direccion, cliente.dni_empleado, cliente.activo FROM cliente WHERE activo=1 AND nombre LIKE " + "'" + Nombre + "'");
 
 					ResultSet rs = ps.executeQuery();
 
@@ -70,7 +69,7 @@ public class DAOClienteImp implements DAOCliente {
 		try (Connection conexion = DriverManager.getConnection(url, user, pass)) {
 
 			ps = conexion.prepareStatement(
-					"SELECT cliente.dni, cliente.nombre, cliente.apellidos, cliente.direccion, cliente.dni_empleado, cliente.activo FROM cliente WHERE activo='1' AND dni="
+					"SELECT cliente.dni, cliente.nombre, cliente.apellidos, cliente.direccion, cliente.dni_empleado, cliente.activo FROM cliente WHERE activo=1 AND dni="
 							+ "'" + dni + "'");
 
 			ResultSet rs = ps.executeQuery();
