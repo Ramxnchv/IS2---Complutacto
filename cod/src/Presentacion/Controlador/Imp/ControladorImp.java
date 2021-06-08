@@ -135,9 +135,9 @@ public class ControladorImp extends Controlador{
 			case Evento.MOSTRAR_TODOS_EMPLEADO:{
 				factoria = FactoriaSA.getInstance();
 				saEmpleado = factoria.generaSAEmpleado();
-				//MostrarTodosEmpleadosGUI most= new MostrarTodosEmpleadosGUI();
+				MostrarTodosEmpleadosGUI most= new MostrarTodosEmpleadosGUI();
 				try {
-					//most.MostrarTodosEmpleados(saEmpleado.MostrarTodos());
+					most.MostrarTodosEmpleados(saEmpleado.mostrarTodos());
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
