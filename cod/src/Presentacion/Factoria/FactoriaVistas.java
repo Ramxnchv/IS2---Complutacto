@@ -5,6 +5,11 @@ import Presentacion.Cliente.BajaClienteGUI;
 import Presentacion.Cliente.ModificarClienteGUI;
 import Presentacion.Cliente.MostrarClienteGUI;
 import Presentacion.Cliente.MostrarTodosClientesGUI;
+import Presentacion.Empleado.AltaEmpleadoGUI;
+import Presentacion.Empleado.BajaEmpleadoGUI;
+import Presentacion.Empleado.ModificarEmpleadoGUI;
+import Presentacion.Empleado.MostrarEmpleadoGUI;
+import Presentacion.Empleado.MostrarTodosEmpleadosGUI;
 import Presentacion.Factoria.Imp.FactoriaVistasImp;
 
 public abstract class FactoriaVistas {
@@ -24,9 +29,9 @@ public abstract class FactoriaVistas {
 	public abstract MostrarClienteGUI generaMostrarClienteGUI();
 	public abstract MostrarTodosClientesGUI generaMostrarTodosClientesGUI();
 	
-//	public abstract AltaEmpleadoGUI generaAltaEmpleadoGUI(int opcion);
-//	public abstract BajaEmpleadoGUI generaBorrarEmpleadoGUI();
-//	public abstract ModificarEmpleadoGUI generaModificarEmpleadoGUI(int opcion);
-//	public abstract MostrarEmpleadoGUI generaMostrarEmpleadoGUI();
-//	public abstract MostrarTodosEmpleadosGUI generaMostrarTodosEmpleadosGUI();
+	public abstract AltaEmpleadoGUI generaAltaEmpleadoGUI();
+	public abstract BajaEmpleadoGUI generaBorrarEmpleadoGUI();
+	public abstract ModificarEmpleadoGUI generaModificarEmpleadoGUI();
+	public abstract MostrarEmpleadoGUI generaMostrarEmpleadoGUI();
+	public abstract MostrarTodosEmpleadosGUI generaMostrarTodosEmpleadosGUI();
 }

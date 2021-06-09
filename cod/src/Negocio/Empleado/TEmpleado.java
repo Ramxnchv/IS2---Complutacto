@@ -4,7 +4,7 @@ public class TEmpleado {
 	protected String dni;
 	protected String nombre;
 	protected String apellidos;
-	protected int telefono;
+	protected Integer telefono;
 	protected String password;
 	protected String dnisupervisor;
 	protected boolean activo;

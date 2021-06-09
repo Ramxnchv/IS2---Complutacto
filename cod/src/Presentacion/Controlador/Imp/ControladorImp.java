@@ -91,7 +91,7 @@ public class ControladorImp extends Controlador{
 				factoria = FactoriaSA.getInstance();
 				saEmpleado = factoria.generaSAEmpleado();
 				try {
-//					saEmpleado.AltaEmpleado(empleado);
+					saEmpleado.AltaEmpleado(empleado);
 					JOptionPane.showMessageDialog(null,  "Empleado dado de alta", "ALTA EMPLEADO", JOptionPane.INFORMATION_MESSAGE);
 				}
 				catch(Exception e){

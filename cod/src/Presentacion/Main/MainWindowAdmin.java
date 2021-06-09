@@ -133,7 +133,7 @@ public class MainWindowAdmin extends JFrame{
 				String cad= (String) combo2.getSelectedItem();
 				switch(cad) {
 				 case "ALTA_EMPLEADO" :{
-					 //vistas.generaAltaEmpleadoGUI();
+					 vistas.generaAltaEmpleadoGUI();
 				 }break;	
 				 case "BAJA_EMPLEADO" :{
 					 //vistas.generaBorrarEmpleadoGUI();

@@ -5,6 +5,11 @@ import Presentacion.Cliente.BajaClienteGUI;
 import Presentacion.Cliente.ModificarClienteGUI;
 import Presentacion.Cliente.MostrarClienteGUI;
 import Presentacion.Cliente.MostrarTodosClientesGUI;
+import Presentacion.Empleado.AltaEmpleadoGUI;
+import Presentacion.Empleado.BajaEmpleadoGUI;
+import Presentacion.Empleado.ModificarEmpleadoGUI;
+import Presentacion.Empleado.MostrarEmpleadoGUI;
+import Presentacion.Empleado.MostrarTodosEmpleadosGUI;
 import Presentacion.Factoria.FactoriaVistas;
 
 public class FactoriaVistasImp extends FactoriaVistas {
@@ -40,28 +45,28 @@ public class FactoriaVistasImp extends FactoriaVistas {
 	}
 	
 	
-//	@Override
-//	public AltaEmpleadoGUI generaAltaEmpleadoGUI(int opcion) {
-//		return new AltaEmpleadoGUI( opcion);
-//	}
+	@Override
+	public AltaEmpleadoGUI generaAltaEmpleadoGUI() {
+		return new AltaEmpleadoGUI();
+	}
+
+	@Override
+	public BajaEmpleadoGUI generaBorrarEmpleadoGUI() {
+		return new BajaEmpleadoGUI();
+	}
+
+	@Override
+	public ModificarEmpleadoGUI generaModificarEmpleadoGUI() {
+		return new ModificarEmpleadoGUI();
+	}
+
+	@Override
+	public MostrarEmpleadoGUI generaMostrarEmpleadoGUI() {
+		return new MostrarEmpleadoGUI();
+	}
 //
-//	@Override
-//	public BajaEmpleadoGUI generaBorrarEmpleadoGUI() {
-//		return new BajaEmpleadoGUI();
-//	}
-//
-//	@Override
-//	public ModificarEmpleadoGUI generaModificarEmpleadoGUI(int opcion) {
-//		return new ModificarEmpleadoGUI(opcion);
-//	}
-//
-//	@Override
-//	public MostrarEmpleadoGUI generaMostrarEmpleadoGUI() {
-//		return new MostrarEmpleadoGUI();
-//	}
-//
-//	@Override
-//	public MostrarTodosEmpleadosGUI generaMostrarTodosEmpleadosGUI() {
-//		return new MostrarTodosEmpleadosGUI();
-//	}
+	@Override
+	public MostrarTodosEmpleadosGUI generaMostrarTodosEmpleadosGUI() {
+		return new MostrarTodosEmpleadosGUI();
+	}
 }
