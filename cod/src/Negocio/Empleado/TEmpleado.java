@@ -9,14 +9,14 @@ public class TEmpleado {
 	protected String dnisupervisor;
 	protected boolean activo;
 	
-	public TEmpleado(String dni, String nombre,String apellidos,int telefono, String password, String dnisupervisor) {
+	public TEmpleado(String dni, String nombre,String apellidos,int telefono, String password, String dnisupervisor, boolean activo) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.password = password;
 		this.dnisupervisor = dnisupervisor;
-		activo = true;
+		this.activo = activo;
 	}
 	
 	public TEmpleado(String dni, String password) {
@@ -24,6 +24,7 @@ public class TEmpleado {
 		this.password = password;
 		activo = true;
 	}
+	
 	
 	public String getDNI() {
 		return dni;

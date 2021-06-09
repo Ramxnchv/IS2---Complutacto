@@ -16,6 +16,7 @@ public class MostrarEmpleadoTableModel extends AbstractTableModel {
 		this.lista = x;
 	}
 	public MostrarEmpleadoTableModel(TEmpleado empleado) {
+		this.lista = new ArrayList<>();
 		this.lista.add(empleado);
 	}
 	@Override

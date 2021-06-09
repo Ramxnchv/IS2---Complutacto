@@ -117,10 +117,10 @@ public class AltaEmpleadoGUI extends JFrame{
 					 TEmpleado emp = null;
 					 setVisible(false);
 					 if(fDNIsupervisor.getText().equals("")) {
-						 emp = new TEmpleado(fDNI.getText(), fnombre.getText(),fapellidos.getText(),Integer.valueOf(ftelefono.getText()),fpassword.getText(),null);
+						 emp = new TEmpleado(fDNI.getText(), fnombre.getText(),fapellidos.getText(),Integer.valueOf(ftelefono.getText()),fpassword.getText(),null,true);
 					 }
 					 else {
-						 emp = new TEmpleado(fDNI.getText(), fnombre.getText(),fapellidos.getText(),Integer.valueOf(ftelefono.getText()),fpassword.getText(),fDNIsupervisor.getText());
+						 emp = new TEmpleado(fDNI.getText(), fnombre.getText(),fapellidos.getText(),Integer.valueOf(ftelefono.getText()),fpassword.getText(),fDNIsupervisor.getText(),true);
 					 }
 					 
 					 ControladorImp.getInstance().accion(Evento.ALTA_EMPLEADO, emp);

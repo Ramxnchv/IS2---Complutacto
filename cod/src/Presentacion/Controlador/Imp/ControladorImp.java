@@ -104,7 +104,7 @@ public class ControladorImp extends Controlador{
 				saEmpleado= factoria.generaSAEmpleado();
 				try {
 					saEmpleado.BajaEmpleado(dni);
-					JOptionPane.showMessageDialog(null,  "Cliente dado de baja", "BAJA CLIENTE", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,  "Empleado dado de baja", "BAJA CLIENTE", JOptionPane.INFORMATION_MESSAGE);
 				}
 				catch(Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
@@ -116,7 +116,7 @@ public class ControladorImp extends Controlador{
 				factoria = FactoriaSA.getInstance();
 				saEmpleado = factoria.generaSAEmpleado();
 				try {
-					//saEmpleado.ModificarEmpleado(empleado);
+					saEmpleado.ModificarEmpleado(empleado);
 					JOptionPane.showMessageDialog(null,  "Empleado modificado", "MODIFICAR EMPLEADO", JOptionPane.INFORMATION_MESSAGE);
 				}
 				catch(Exception e){
@@ -124,11 +124,11 @@ public class ControladorImp extends Controlador{
 				}
 			}break;
 			case Evento.MOSTRAR_EMPLEADO :{
-				String dni = (String) object;
+				TEmpleado empleado = (TEmpleado) object;
 				factoria = FactoriaSA.getInstance();
 				saEmpleado = factoria.generaSAEmpleado();
 				try {
-					//vistas.generaMostrarEmpleadoGUI().mostrarEmpleado(saEmpleado.MostrarEmpleado(dni));
+					vistas.generaMostrarEmpleadoGUI().mostrarEmpleado(saEmpleado.mostrarEmpleado(empleado));
 				}
 				catch(Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

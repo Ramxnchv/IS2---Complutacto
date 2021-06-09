@@ -136,13 +136,13 @@ public class MainWindowAdmin extends JFrame{
 					 vistas.generaAltaEmpleadoGUI();
 				 }break;	
 				 case "BAJA_EMPLEADO" :{
-					 //vistas.generaBorrarEmpleadoGUI();
+					 vistas.generaBorrarEmpleadoGUI();
 			 	 }break;
 				 case "MODIFICAR_EMPLEADO" :{
-					 //vistas.generaModificarEmpleadoGUI();
+					 vistas.generaModificarEmpleadoGUI();
 				 }break;
-				 case "MOSTRAR_EMPLEADO" :{
-					 //vistas.generaMostrarEmpleadoGUI();
+				 case "BUSCAR_EMPLEADO" :{
+					 vistas.generaMostrarEmpleadoGUI();
 			 	 }break;
 				 case "MOSTRAR_TODOS_EMPLEADO" :{
 					 Controlador.getInstance().accion(Evento.MOSTRAR_TODOS_EMPLEADO, null);

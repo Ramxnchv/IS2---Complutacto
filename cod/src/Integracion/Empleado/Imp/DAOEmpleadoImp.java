@@ -34,7 +34,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				emp = new TEmpleado(rs.getString(1), rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(2), rs.getString(6));
+				emp = new TEmpleado(rs.getString(1), rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(2), rs.getString(6), rs.getBoolean(7));
 			} 
 		} catch (SQLException e) {
 			System.out.println("Error al intentar establecer conexion");
@@ -57,7 +57,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				emp = new TEmpleado(rs.getString(1), rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(2), rs.getString(6));
+				emp = new TEmpleado(rs.getString(1), rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(2), rs.getString(6),rs.getBoolean(7));
 			} 
 		} catch (SQLException e) {
 			System.out.println("Error al intentar establecer conexion");
@@ -100,7 +100,8 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			while(rs.next()) {
 				TEmpleado t = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), 
 											rs.getString("apellidos"),rs.getInt("Telefono"),
-											rs.getString("contraseña"), rs.getString("dni_supervisor"));
+											rs.getString("contraseña"), rs.getString("dni_supervisor"),
+											rs.getBoolean("activo"));
 				ret.add(t);
 			}
 			
@@ -163,7 +164,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 
 			if (rs.next()) {
 
-				emp = new TEmpleado(rs.getString(1), rs.getString(2), rs.getString(3),rs.getInt(4), rs.getString(5), rs.getString(6));
+				emp = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"),rs.getInt("telefono"),rs.getString("contraseña"), rs.getString("dni_supervisor"),rs.getBoolean("activo"));
 
 			}
 

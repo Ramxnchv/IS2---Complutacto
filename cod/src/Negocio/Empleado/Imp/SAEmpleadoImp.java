@@ -23,22 +23,26 @@ public class SAEmpleadoImp implements SAEmpleado {
 	public void AltaEmpleado(TEmpleado empleado) throws Exception {
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOEmpleado daoE = factoria.generaDAOEmpleados();
-		TEmpleado emp = daoEmpleado.leerEmpleadoDNI(empleado.getDNI());
+		TEmpleado emp = daoEmpleado.buscarPorID(empleado.getDNI());
 		
-		if(empleado.getDNISupervisor()!=null) {
-			TEmpleado supervisor = daoEmpleado.leerEmpleadoDNI(empleado.getDNISupervisor());
-			if(supervisor == null) {
-				throw new Exception ("No hay ningún supervisor con el DNI: " + empleado.getDNISupervisor());
+		TEmpleado sup = daoEmpleado.leerEmpleadoDNI(empleado.getDNISupervisor());
+		if(sup == null) {
+			throw new Exception("El DNI "+empleado.getDNISupervisor()+" no pertenece a ningún supervisor");
+		}
+		//Si no existe lo creamos
+		if(emp == null) {
+			daoE.altaEmpleado(empleado);
+		}
+		else {
+			//Si existe lo actualizamos
+			if(emp.getDNI().equals(empleado.getDNI()) && emp.getActivo()==false) {
+				daoE.actualizarEmpleado(empleado);
 			}
 			else {
-				if(emp != null) {
-					daoE.actualizarEmpleado(empleado);
-				}
-				else {
-					daoE.altaEmpleado(empleado);
-				}
+				throw new Exception("Error al dar de alta al empleado con DNI " + empleado.getDNI());
 			}
-		}		
+		}
+			
 	}
 
 	@Override
@@ -98,7 +102,7 @@ public class SAEmpleadoImp implements SAEmpleado {
 				throw new Exception("El empleado con DNI: " +empleado.getDNI()+" no se encuentra o no esta activo en la base de datos");
 			}
 		}
-		return empleado;
+		return emp;
 	}
 
 	@Override
