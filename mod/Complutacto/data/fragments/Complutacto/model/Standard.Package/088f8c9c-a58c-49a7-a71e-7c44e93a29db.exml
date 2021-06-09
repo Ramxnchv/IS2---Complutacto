@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Empleado" version="4">
+  <OBJECT>
+    <ID name="Empleado" mc="Standard.Package" uid="088f8c9c-a58c-49a7-a71e-7c44e93a29db"/>
+    <PID name="Negocio" mc="Standard.Package" uid="03ee9fe2-3816-407b-a7b7-31ea7b12be46"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Empleado]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="TEmpleado" mc="Standard.Class" uid="4ab844f1-fe39-4c68-81be-ea65cc9f1b8d"/>
+        <COMPID name="SAEmpleado" mc="Standard.Interface" uid="d6b0ae02-fe29-443d-a0a3-0512f9f39b0c"/>
+        <COMPID name="Imp" mc="Standard.Package" uid="29fd3431-e1da-492f-b7b3-bacea747446e"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

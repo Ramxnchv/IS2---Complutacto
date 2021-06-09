@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Factoria" version="4">
+  <OBJECT>
+    <ID name="Factoria" mc="Standard.Package" uid="63ddac7a-b9cd-4dbf-ad44-306219bce75c"/>
+    <PID name="Integracion" mc="Standard.Package" uid="adba88ca-a4a0-48b7-b443-69e833454fc0"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Factoria]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="FactoriaIntegracion" mc="Standard.Class" uid="7d6d1af0-5b89-4a39-aa81-7683faaa3be7"/>
+        <COMPID name="Imp" mc="Standard.Package" uid="bca09cd3-ce30-4d3f-acea-724d99ca77d3"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

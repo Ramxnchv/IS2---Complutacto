@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Presentacion" version="4">
+  <OBJECT>
+    <ID name="Presentacion" mc="Standard.Package" uid="049f43b9-8f6c-46c3-bd5e-53e30775024c"/>
+    <PID name="complutacto" mc="Standard.Package" uid="81d18913-8096-4536-b522-0ef4894e223b"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Presentacion]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Controlador" mc="Standard.Package" uid="548f5aa2-cc2a-4bf9-8285-2b1d82d8cb4e"/>
+        <COMPID name="Empleado" mc="Standard.Package" uid="504b7a03-404b-4bc4-9a66-b7e36fdc734b"/>
+        <COMPID name="Cliente" mc="Standard.Package" uid="5774eba6-9eaf-482c-9674-e569e7dfd625"/>
+        <COMPID name="Main" mc="Standard.Package" uid="a847b5dc-197d-4b93-8f32-c39d2af78eae"/>
+        <COMPID name="Factoria" mc="Standard.Package" uid="86a6b612-0f55-4ddf-afe7-b5f3a3f600b7"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
