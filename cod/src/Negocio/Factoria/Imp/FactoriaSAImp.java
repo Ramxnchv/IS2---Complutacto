@@ -2,7 +2,6 @@ package Negocio.Factoria.Imp;
 
 import Negocio.Factoria.FactoriaSA;
 
-import Negocio.Tarifa.SATarifa;
 import Negocio.Cliente.SACliente;
 import Negocio.Cliente.Imp.SAClienteImp;
 import Negocio.Empleado.SAEmpleado;
