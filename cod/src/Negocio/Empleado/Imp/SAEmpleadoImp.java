@@ -15,9 +15,9 @@ public class SAEmpleadoImp implements SAEmpleado {
 	public void AltaEmpleado(TEmpleado empleado) throws Exception {
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOEmpleado daoE = factoria.generaDAOEmpleados();
-		TEmpleado emp = daoEmpleado.buscarPorID(empleado.getDNI());
+		TEmpleado emp = daoE.buscarPorID(empleado.getDNI());
 		
-		TEmpleado sup = daoEmpleado.leerEmpleadoDNI(empleado.getDNISupervisor());
+		TEmpleado sup = daoE.leerEmpleadoDNI(empleado.getDNISupervisor());
 		if(sup == null) {
 			throw new Exception("El DNI "+empleado.getDNISupervisor()+" no pertenece a ningún supervisor");
 		}
@@ -81,6 +81,7 @@ public class SAEmpleadoImp implements SAEmpleado {
 	@Override
 	public TEmpleado mostrarEmpleado(TEmpleado empleado) throws Exception {
 		TEmpleado emp = null;
+		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOEmpleado daoE = factoria.generaDAOEmpleados();
 		if(empleado.getDNI()==null) {
 			emp = daoE.leerEmpleadoNombre(empleado.getNombre());
@@ -99,14 +100,18 @@ public class SAEmpleadoImp implements SAEmpleado {
 
 	@Override
 	public Collection<TEmpleado> mostrarTodos() throws Exception {
-		return daoEmpleado.leerEmpleados();
+		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
+		DAOEmpleado daoE = factoria.generaDAOEmpleados();
+		return daoE.leerEmpleados();
 	}
 
 
 	@Override
 	public String[] LogInEmpleado(String dni, String password) throws Exception {
 		String[] resultado = new String[2];
-		TEmpleado empleado = daoEmpleado.leerEmpleadoDNI(dni);
+		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
+		DAOEmpleado daoE = factoria.generaDAOEmpleados();
+		TEmpleado empleado = daoE.leerEmpleadoDNI(dni);
 		if(empleado == null) {
 			throw new Exception("No existe ningún empleado en el sistema con ese DNI");
 		}
