@@ -100,7 +100,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 			while(rs.next()) {
 				TEmpleado t = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), 
 											rs.getString("apellidos"),rs.getInt("Telefono"),
-											rs.getString("contraseÃ±a"), rs.getString("dni_supervisor"),
+											rs.getString("contraseña"), rs.getString("dni_supervisor"),
 											rs.getBoolean("activo"));
 				ret.add(t);
 			}
@@ -116,7 +116,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 		// TODO Auto-generated method stub
 		Connection conexion=DriverManager.getConnection(url, user, password);
 		Class.forName(driver);
-		ps = conexion.prepareStatement("INSERT INTO empleado (dni,contraseÃ±a,nombre,apellidos,telefono,dni_supervisor,activo) VALUES (?,?,?,?,?,?,1)",Statement.RETURN_GENERATED_KEYS);
+		ps = conexion.prepareStatement("INSERT INTO empleado (dni,contraseña,nombre,apellidos,telefono,dni_supervisor,activo) VALUES (?,?,?,?,?,?,1)",Statement.RETURN_GENERATED_KEYS);
 		ps.setString(1, empleado.getDNI());
 		ps.setString(2, empleado.getPW());
 		ps.setString(3, empleado.getNombre());
@@ -132,7 +132,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 		
 		try(Connection conexion=DriverManager.getConnection(url, user, password)){
 			Class.forName(driver);
-			ps=conexion.prepareStatement("UPDATE empleado SET nombre='"+empleado.getNombre()+"', apellidos='"+empleado.getApellidos()+"', contraseÃ±a= '"+empleado.getPW()+"' , telefono="+empleado.getTelefono()+" ,dni_supervisor='"+empleado.getDNISupervisor()+"', ACTIVO= 1 WHERE dni='"+empleado.getDNI()+"'");
+			ps=conexion.prepareStatement("UPDATE empleado SET nombre='"+empleado.getNombre()+"', apellidos='"+empleado.getApellidos()+"', contraseña= '"+empleado.getPW()+"' , telefono="+empleado.getTelefono()+" ,dni_supervisor='"+empleado.getDNISupervisor()+"', ACTIVO= 1 WHERE dni='"+empleado.getDNI()+"'");
 			ps.executeUpdate();
             
 			}
@@ -164,7 +164,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 
 			if (rs.next()) {
 
-				emp = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"),rs.getInt("telefono"),rs.getString("contraseÃ±a"), rs.getString("dni_supervisor"),rs.getBoolean("activo"));
+				emp = new TEmpleado(rs.getString("dni"), rs.getString("nombre"), rs.getString("apellidos"),rs.getInt("telefono"),rs.getString("contraseña"), rs.getString("dni_supervisor"),rs.getBoolean("activo"));
 
 			}
 
@@ -183,7 +183,7 @@ public class DAOEmpleadoImp implements DAOEmpleado {
 		// TODO Auto-generated method stub
 		try(Connection conexion=DriverManager.getConnection(url, user, password)){
 			Class.forName(driver);
-			ps=conexion.prepareStatement("UPDATE empleado SET nombre='"+empleado.getNombre()+"', apellidos='"+empleado.getApellidos()+"', contraseÃ±a= '"+empleado.getPW()+"' , telefono="+empleado.getTelefono()+" ,dni_supervisor='"+empleado.getDNISupervisor()+"', ACTIVO= 0 WHERE dni='"+empleado.getDNI()+"'");
+			ps=conexion.prepareStatement("UPDATE empleado SET nombre='"+empleado.getNombre()+"', apellidos='"+empleado.getApellidos()+"', contraseña= '"+empleado.getPW()+"' , telefono="+empleado.getTelefono()+" ,dni_supervisor='"+empleado.getDNISupervisor()+"', ACTIVO= 0 WHERE dni='"+empleado.getDNI()+"'");
 			ps.executeUpdate();
             
 			}
