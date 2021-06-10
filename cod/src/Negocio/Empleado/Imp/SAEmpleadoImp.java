@@ -16,10 +16,11 @@ public class SAEmpleadoImp implements SAEmpleado {
 		FactoriaIntegracion factoria = FactoriaIntegracionImp.getInstance();
 		DAOEmpleado daoE = factoria.generaDAOEmpleados();
 		TEmpleado emp = daoE.buscarPorID(empleado.getDNI());
-		
-		TEmpleado sup = daoE.leerEmpleadoDNI(empleado.getDNISupervisor());
-		if(sup == null) {
-			throw new Exception("El DNI "+empleado.getDNISupervisor()+" no pertenece a ningún supervisor");
+		if(empleado.getDNISupervisor()!= null) {
+			TEmpleado sup = daoE.leerEmpleadoDNI(empleado.getDNISupervisor());
+			if(sup == null) {
+				throw new Exception("El DNI "+empleado.getDNISupervisor()+" no pertenece a ningun supervisor");
+			}
 		}
 		//Si no existe lo creamos
 		if(emp == null) {
