@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2021 a las 21:25:02
+-- Tiempo de generación: 11-06-2021 a las 18:02:50
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -41,7 +41,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`dni`, `nombre`, `apellidos`, `direccion`, `dni_empleado`, `activo`) VALUES
-('12345678B', 'Manolo', 'Garcia', 'Santasmases, 1', '51139430B', 1);
+('12345678B', 'Manolo', 'Suarez', 'C/ Santasmases, 2', '51139430B', 1),
+('33333333A', 'Shunyi', 'Wang', 'C/ Gran Via, 45', '12345678A', 1),
+('87654321A', 'Eustaquio', 'Gonzalez', 'C/Genova, 66', '51139430B', 1);
 
 -- --------------------------------------------------------
 
@@ -85,8 +87,10 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`dni`, `contraseña`, `nombre`, `apellidos`, `telefono`, `dni_supervisor`, `activo`) VALUES
-('12345678A', 'binchen', 'BIN', 'CHEN', 688001661, NULL, 1),
-('51139430B', '1234', 'Ramon', 'Rosa', 677534170, '51139430B', 1);
+('12345678A', 'binchen', 'BIN', 'CHEN', 688001661, '51139430B', 1),
+('22222222A', 'pato', 'Ruben', 'Gomez', 684202735, '51139430B', 1),
+('51139430B', '1234', 'Ramon', 'Rosa', 677534170, NULL, 1),
+('55555555W', '1234', 'Chang', 'Chang', 632512541, NULL, 1);
 
 -- --------------------------------------------------------
 
