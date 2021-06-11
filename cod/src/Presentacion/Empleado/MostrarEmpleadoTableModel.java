@@ -9,7 +9,7 @@ import Negocio.Empleado.TEmpleado;
 
 public class MostrarEmpleadoTableModel extends AbstractTableModel {
 	private List<TEmpleado> lista;
-	private static String[] headers = {"DNI","NOMBRE","APELLIDOS","TELEFONO","DNI_SUPERVISOR","ACTIVO"};
+	private static String[] headers = {"DNI","NOMBRE","APELLIDOS","TELEFONO","DNI_SUPERVISOR"};
 	
 	public MostrarEmpleadoTableModel(Collection<TEmpleado> lista) {
 		List<TEmpleado> x = new ArrayList(lista);
@@ -48,9 +48,6 @@ public class MostrarEmpleadoTableModel extends AbstractTableModel {
 		}
 		else if (headers[columnIndex].equalsIgnoreCase("telefono")) {
 			y = lista.get(rowIndex).getTelefono();
-		}
-		else if (headers[columnIndex].equalsIgnoreCase("activo")) {
-			y = lista.get(rowIndex).getActivo();
 		}
 		else if (headers[columnIndex].equalsIgnoreCase("dni_supervisor")) {
 			y = lista.get(rowIndex).getDNISupervisor();

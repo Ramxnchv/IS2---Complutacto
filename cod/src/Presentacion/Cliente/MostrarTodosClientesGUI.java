@@ -24,6 +24,7 @@ public class MostrarTodosClientesGUI extends JFrame{
 	}
 	
 	public void MostrarTodosClientes(ArrayList<TCliente> clientes) {
+		setTitle("LISTA DE CLIENTES");
 		MostrarClienteTableModel x = new MostrarClienteTableModel(clientes);
 		JTable table = new JTable(x);
 		JScrollPane y = new JScrollPane(table);

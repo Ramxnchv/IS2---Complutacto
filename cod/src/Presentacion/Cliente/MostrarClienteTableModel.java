@@ -8,7 +8,7 @@ import Negocio.Cliente.TCliente;
 
 public class MostrarClienteTableModel extends AbstractTableModel{
 	private ArrayList<TCliente> lista; 
-	private String[] headers = {"DNI","NOMBRE","APELLIDOS","DIRECCION","DNI_EMPLEADO","ACTIVO"}; 
+	private String[] headers = {"DNI","NOMBRE","APELLIDOS","DIRECCION","DNI_EMPLEADO"}; 
 	
 	public MostrarClienteTableModel(ArrayList<TCliente> lista) { 
 		this.lista = lista; 
@@ -46,9 +46,6 @@ public class MostrarClienteTableModel extends AbstractTableModel{
 		} 
 		else if (headers[columnIndex].equalsIgnoreCase("dni_empleado")) { 
 			y = this.lista.get(rowIndex).getDNI_empleado(); 
-		}
-		else if(headers[columnIndex].equalsIgnoreCase("activo")) {
-			y = this.lista.get(rowIndex).isActivo() ? "SI" : "NO"; 
 		}
 		return y; 
 	}

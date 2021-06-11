@@ -21,6 +21,7 @@ public class MostrarTodosEmpleadosGUI extends JFrame {
 	}
 	
 	public void MostrarTodosEmpleados(Collection<TEmpleado> empleados) {
+		setTitle("LISTA DE EMPLEADOS");
 		MostrarEmpleadoTableModel x = new MostrarEmpleadoTableModel(empleados);
 		JTable table = new JTable(x);
 		JScrollPane y = new JScrollPane(table);
